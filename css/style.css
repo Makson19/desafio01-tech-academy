@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,200;1,500&display=swap');
+
+/* ===== RESET ===== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;  /* = 10px*/
+    font-family: 'Poppins', 'Times New Roman', Times, serif;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* ===== HEADER ===== */
+#header {
+    background-image: url('../img/background03.jpg');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+
+#header .header__container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#header h1{
+    display: block;
+    width: fit-content;
+    font-size: 5rem;
+    position: relative;
+    color: transparent;
+    animation: text_reveal .5s ease forwards;
+    animation-delay: 1.5s;
+}
+
+#header h1:nth-child(1){
+    animation-delay: .8s;
+}
+
+#header h1:nth-child(2){
+    animation-delay: 1.8s;
+}
+
+#header h1:nth-child(3){
+    animation: text_reveal_name .5s ease forwards;
+    animation-delay: 2.8s;
+}
+
+#header .button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    color: gold;
+    background-color: transparent;
+    border: 0.2rem solid gold;
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    margin-top: 2rem;
+    transition: 0.5s ease;
+    transition-property: background-color, color;
+}
+
+#header .button:hover {
+    color: white;
+    font-weight: 500;
+    background-color: gold;
+}
+
+#header h1 span{
+    position: absolute;
+    top: 0;
+    left:0;
+    height: 100%;
+    width: 0%;
+    animation: text_reveal_box 1s ease;
+    animation-delay: .5s;
+    background-color: gold;
+}
+
+#header h1:nth-child(1) span{
+    animation-delay: .5s;
+}
+
+#header h1:nth-child(2) span{
+    animation-delay: 1.5s;
+}
+
+#header h1:nth-child(3) span{
+    animation-delay: 2.5s;
+}
+
+#header::after{
+    content: '';
+    position: absolute;
+    left:0;
+    top: 0;
+    height:100%;
+    width: 100%;
+    background-color:black;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+
+/* ===== MAIN ===== */
+#portfolio {
+    background-color: #EEE;
+}
+
+#portfolio .main__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 10rem 0;
+}
+
+#portfolio .title h1 {
+    font-size: 4rem;
+    font-weight: 500;
+    margin-bottom: 5rem;
+    text-transform: uppercase;
+}
+
+#portfolio .projects-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#portfolio .project-item {
+    width: 80%;
+    margin: 2rem auto;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+#portfolio .project-info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    background-image: linear-gradient(60deg, #4B565D 0%, #141414 100%);
+    color: white;
+}
+
+#portfolio .project-info .content {
+    flex-basis: 50%;
+    padding: 3rem;
+    transition: 0.5s ease color;
+}
+
+#portfolio .project-item:hover .project-info .content {
+    color: lightgreen;
+}
+
+#portfolio .project-info .content h1 {
+    font-size: 3.2rem;
+    font-weight: 500;
+}
+
+#portfolio .project-info .content p {
+    font-size: 1.4rem;
+    margin-top: 0.5rem;
+    line-height: 2.5rem;
+    font-weight: 200;
+    letter-spacing: 0.05rem;
+}
+
+#portfolio .project-info .project-img {
+    flex-basis: 50%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+#portfolio .project-info .project-img img {
+    transition: 0.5s ease transform;
+}
+
+#portfolio .project-item:hover .project-info .project-img img {
+    transform: scale(1.1);
+}
+
+
+/* ===== KEYFRAMES ===== */
+
+@keyframes text_reveal{
+    100%{
+        color: white;
+    }
+}
+
+@keyframes text_reveal_name{
+    100%{
+        color: gold;
+        font-weight: 500px;
+    }
+}
+
+@keyframes text_reveal_box{
+    50%{
+        width:100%;
+        left:0;
+    }
+    100%{
+        width: 0;
+        left:100%
+    }
+}
+
+
+/* ===== MEDIA QUERIES ===== */
+@media only screen and (min-width: 768px) {
+    #portfolio .project-item {
+        margin: 0;
+        border-radius: 0;
+    }
+
+    #portfolio .project-item .project-info {
+        flex-direction: row;
+        height: 400px;
+        width: 100%;
+    }
+
+    #portfolio .project-item .project-info{
+        height: 100%
+    }
+
+    #portfolio .project-item:nth-child(even) .project-info {
+        flex-direction: row-reverse;
+    }
+
+    #main .project-info .project-img{
+        height: 100%
+    }
+}
